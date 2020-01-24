@@ -1,8 +1,8 @@
 # Define the Azure Provide
 provider "azurerm" {
   version = "~>1.32.0"
-  subscription_id = ""
-  tenant_id = ""
+  subscription_id = "${var.subscription_id}"
+  tenant_id = "${var.tenant_id}"
 }
 
 # Create a resource group for our Cosmos Account
@@ -28,8 +28,6 @@ resource "azurerm_cosmosdb_account" "db" {
   consistency_policy {
       consistency_level = "Session"
   }
-
-
 }
 
 
